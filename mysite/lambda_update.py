@@ -16,18 +16,17 @@ def update_lambda():
     if use_duplo :
         DUPLO_URL = os.getenv('DUPLO_URL')
         API_TOKEN = os.getenv('DUPLO_API_TOKEN')
-        DUPLO_URL = os.getenv('DUPLO_URL')
 
 
     function_name = os.getenv('LAMBDA_NAME')
     if function_name is None:
         function_name = "duploservices-dev01-helloworld-128329325849"
     if use_duplo:
-        headers = { 'Content-Type': 'application/json' }
-    else:
         headers = { "Authorization": "Bearer {0}".format( API_TOKEN ),
                  'Content-Type': 'application/json'
                  }
+    else:
+        headers = { 'Content-Type': 'application/json' }
     data = {
         "FunctionName": function_name,
         "Timeout": 20,
