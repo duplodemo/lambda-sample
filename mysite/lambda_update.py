@@ -15,7 +15,7 @@ def update_lambda():
         use_duplo =True
     if use_duplo :
         DUPLO_URL = os.getenv('DUPLO_URL')
-        DUPLO_API_TOKEN = os.getenv('DUPLO_API_TOKEN')
+        API_TOKEN = os.getenv('DUPLO_API_TOKEN')
         DUPLO_URL = os.getenv('DUPLO_URL')
 
 
