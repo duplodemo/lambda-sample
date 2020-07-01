@@ -9,15 +9,25 @@ def update_lambda():
     s3_file = 'apigateway-zappa-demo.zip'
     S3_BUCKET_LAMBDA = os.getenv('S3_BUCKET_LAMBDA')
     TENANTID = os.getenv('TENANTID')
+    use_duplo = False
     DUPLO_URL = os.getenv('DISCOVERY_EP')
+    if DUPLO_URL is None:
+        use_duplo =True
+    if use_duplo :
+        DUPLO_URL = os.getenv('DUPLO_URL')
+        DUPLO_API_TOKEN = os.getenv('DUPLO_API_TOKEN')
+        DUPLO_URL = os.getenv('DUPLO_URL')
+
 
     function_name = os.getenv('LAMBDA_NAME')
     if function_name is None:
         function_name = "duploservices-dev01-helloworld-128329325849"
-
-    headers = {
-                'Content-Type': 'application/json'
-        }
+    if use_duplo:
+        headers = { 'Content-Type': 'application/json' }
+    else:
+        headers = { "Authorization": "Bearer {0}".format( API_TOKEN ),
+                 'Content-Type': 'application/json'
+                 }
     data = {
         "FunctionName": function_name,
         "Timeout": 20,
