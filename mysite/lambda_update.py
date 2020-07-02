@@ -5,30 +5,41 @@ import json
 import requests
 
 def update_lambda():
-
+    use_duplo = False
     s3_file = 'apigateway-zappa-demo.zip'
+    LAMBDA_NAME = os.getenv('LAMBDA_NAME')
     S3_BUCKET_LAMBDA = os.getenv('S3_BUCKET_LAMBDA')
     TENANTID = os.getenv('TENANTID')
-    use_duplo = False
-    DUPLO_URL = os.getenv('DISCOVERY_EP')
-    if DUPLO_URL is None:
-        use_duplo =True
-    if use_duplo :
+
+    #available from internal
+    if os.getenv('DISCOVERY_EP') is None:
+        ## requied from azure devops
         DUPLO_URL = os.getenv('DUPLO_URL')
         API_TOKEN = os.getenv('DUPLO_API_TOKEN')
+    if use_duplo :
+        use_duplo =True
+        DUPLO_URL = os.getenv('DISCOVERY_EP')
+        API_TOKEN=""
 
+    #validate
+    if os.getenv('LAMBDA_NAME') is None:
+        print("ERROR: LAMBDA_NAME is requied")
+    if os.getenv('S3_BUCKET_LAMBDA') is None:
+        print("ERROR: S3_BUCKET_LAMBDA is requied")
+    if os.getenv('TENANTID') is None:
+        print("ERROR: TENANTID is requied")
+    if os.getenv('DUPLO_URL') is None:
+        print("ERROR: DUPLO_URL is requied")
+    if os.getenv('API_TOKEN') is None:
+        print("ERROR: API_TOKEN is requied")
 
-    function_name = os.getenv('LAMBDA_NAME')
-    if function_name is None:
-        function_name = "duploservices-dev01-helloworld-128329325849"
     if use_duplo:
         headers = { "Authorization": "Bearer {0}".format( API_TOKEN ),
-                 'Content-Type': 'application/json'
-                 }
+                 'Content-Type': 'application/json'  }
     else:
         headers = { 'Content-Type': 'application/json' }
     data = {
-        "FunctionName": function_name,
+        "FunctionName": LAMBDA_NAME,
         "Timeout": 20,
         "MemorySize":128,
         "Handler":"handler.lambda_handler",
@@ -44,7 +55,7 @@ def update_lambda():
 
     #UpdateLambdaFunction
     data = {
-     "FunctionName":function_name,
+     "FunctionName":LAMBDA_NAME,
      "S3Bucket":S3_BUCKET_LAMBDA,
      "S3Key":s3_file
     }
