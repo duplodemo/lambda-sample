@@ -22,15 +22,15 @@ def update_lambda():
         API_TOKEN=""
 
     #validate
-    if os.getenv('LAMBDA_NAME') is None:
+    if LAMBDA_NAME is None:
         print("ERROR: LAMBDA_NAME is requied")
-    if os.getenv('S3_BUCKET_LAMBDA') is None:
+    if S3_BUCKET_LAMBDA is None:
         print("ERROR: S3_BUCKET_LAMBDA is requied")
-    if os.getenv('TENANTID') is None:
+    if TENANTID is None:
         print("ERROR: TENANTID is requied")
-    if os.getenv('DUPLO_URL') is None:
+    if DUPLO_URL is None:
         print("ERROR: DUPLO_URL is requied")
-    if os.getenv('API_TOKEN') is None:
+    if API_TOKEN is None:
         print("ERROR: API_TOKEN is requied")
 
     if use_duplo:
@@ -47,12 +47,15 @@ def update_lambda():
         "Runtime":"python3.7"
     }
 
+    print("")
+    print("")
     data = json.dumps(data)
     print("UpdateLambdaFunctionConfiguration start ", data)
     endpoint = "{0}/subscriptions/{1}/UpdateLambdaFunctionConfiguration".format(DUPLO_URL, TENANTID)
     response = requests.post(endpoint, headers=headers , data=data)
     print("UpdateLambdaFunctionConfiguration response ", endpoint, response)
-
+    print("")
+    print("")
     #UpdateLambdaFunction
     data = {
      "FunctionName":LAMBDA_NAME,
