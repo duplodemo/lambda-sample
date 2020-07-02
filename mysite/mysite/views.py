@@ -14,9 +14,10 @@ from django.views.decorators.http import require_POST
 
 @require_GET
 def getInfo(httpRequest):
-    title = 'My soap message for demo'
+    title = '' # 'My soap message for demo'
     data_file = os.path.join(os.path.dirname(os.path.abspath(__file__)) , "data.txt")
     with open (data_file, "r") as myfile:
         data = myfile.readlines()
     response = "{0}<br>{1}".format(title, " ".join(data))
+    print("response=", response)
     return HttpResponse(response, content_type="text/html")
