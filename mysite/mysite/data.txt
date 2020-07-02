@@ -1,7 +1,7 @@
 <br>
- <h4>soap message for demo</h4>
+<h4 style="padding: 5px; width: 85%; ">Soap Message Response</h4>
 <br>
-<pre>
+<textarea rows="15" cols="90" style="padding: 5px; width: 85%; ">
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <env:Envelope xmlns:env=http://schemas.xmlsoap.org/soap/envelope/
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -17,4 +17,4 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 <sessionID>1391a2c:129d65614ff:-7ff9</sessionID></checkNameResponse>
 </m:processLoginResponse>
 </env:Body></env:Envelope>
-</pre>
+</prtextareae>
