@@ -34,10 +34,10 @@ def update_lambda():
         print("ERROR: API_TOKEN is requied")
 
     if use_duplo:
-        headers = { "Authorization": "Bearer {0}".format( API_TOKEN ),
-                 'Content-Type': 'application/json'  }
-    else:
         headers = { 'Content-Type': 'application/json' }
+    else:
+        headers = { "Authorization": "Bearer {0}".format( API_TOKEN ),
+                    'Content-Type': 'application/json'  }
     data = {
         "FunctionName": LAMBDA_NAME,
         "Timeout": 20,
