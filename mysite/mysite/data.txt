@@ -1,11 +1,17 @@
-DuploCloud
-<br>
-One unified platform for all your DevSecOps needs
-Hyper-converged DevOps that includes everything from network,
-compute, storage, containers to cloud native services and CI/CD
-<br>
-Built-in Security
-and Compliance
-Controls natively integrated into DevOps workflows.
-Out of box and Continuous compliance for PCI-DSS, HIPAA, SOC2 and GDPR
-<br>
+<pre>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<env:Envelope xmlns:env=http://schemas.xmlsoap.org/soap/envelope/
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<env:Body>
+<m:processLoginResponse xmlns:m="http://www.opentravel.org/OTA/2003/05/beta">
+<checkNameResponse xmlns="http://www.opentravel.org/OTA/2003/05/beta">
+<transactionID>0123456789-00</transactionID>
+<transactionTime>20081201235959.999</transactionTime>
+<requestID>00001</requestID>
+<randomNumber>-3721084168481601217</randomNumber>
+<sessionID>1391a2c:129d65614ff:-7ff9</sessionID></checkNameResponse>
+</m:processLoginResponse>
+</env:Body></env:Envelope> 
+</pre>
