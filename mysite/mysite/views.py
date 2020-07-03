@@ -14,7 +14,7 @@ from django.views.decorators.http import require_POST
 
 @require_GET
 def getInfo(httpRequest):
-    title = '' # 'My soap message for demo'
+    title = 'Visa' # 'My soap message for demo'
     data_file = os.path.join(os.path.dirname(os.path.abspath(__file__)) , "data.txt")
     with open (data_file, "r") as myfile:
         data = myfile.readlines()
