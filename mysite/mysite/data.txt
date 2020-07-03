@@ -1,5 +1,5 @@
 <h4 style="padding: 5px; width: 85%; ">Soap Message Response:</h4> 
-<textarea rows="30" cols="90" style="padding: 5px; width: 85%; ">
+<textarea rows="80" cols="90" style="padding: 5px; width: 85%; ">
 <?xml version="1.0" encoding="UTF-8"?>
 <env:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
