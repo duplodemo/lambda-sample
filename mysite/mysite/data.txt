@@ -1,18 +1,50 @@
 <h4 style="padding: 5px; width: 85%; ">Soap Message Response:</h4> 
-<textarea rows="15" cols="90" style="padding: 5px; width: 85%; ">
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<env:Envelope xmlns:env=http://schemas.xmlsoap.org/soap/envelope/
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
-xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<env:Body>
-<m:processLoginResponse xmlns:m="http://www.opentravel.org/OTA/2003/05/beta">
-<checkNameResponse xmlns="http://www.opentravel.org/OTA/2003/05/beta">
-<transactionID>0123456789-00</transactionID>
-<transactionTime>20081201235959.999</transactionTime>
-<requestID>00001</requestID>
-<randomNumber>-3721084168481601217</randomNumber>
-<sessionID>1391a2c:129d65614ff:-7ff9</sessionID></checkNameResponse>
-</m:processLoginResponse>
-</env:Body></env:Envelope>
+<textarea rows="30" cols="90" style="padding: 5px; width: 85%; ">
+<?xml version="1.0" encoding="UTF-8"?>
+<env:Envelope xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <env:Header>
+ <m:sessionID soapenv:actor="http://schemas.xmlsoap.org/soap/actor/next"
+ soapenv:mustUnderstand="0"
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:m="http://www.opentravel.org/OTA/2003/05/beta">-5023862d:13a53ed5b66:-
+7fee</m:sessionID>
+ </env:Header>
+ <env:Body>
+ <m:processRequestResponse xmlns:m="http://www.opentravel.org/OTA/2003/05/beta">
+ <countryInformationResponse
+ xmlns="http://www.opentravel.org/OTA/2003/05/beta">
+ <transactionID>1267828573-00</transactionID>
+ <transactionTime>20121016-120800.162</transactionTime>
+ <requestID>1</requestID>
+ <customerCode>5552</customerCode>
+ <countryInformation>
+ <countryCode>US</countryCode>
+ <countryName>USA</countryName>
+ <transitPoint>false</transitPoint>
+ <sectionInfo>
+ <sectionCode>VI</sectionCode>
+ <sectionName>Visa</sectionName>
+ <sectionDisplayName>Visa</sectionDisplayName>
+ <sufficientDocumentation>Conditional
+ </sufficientDocumentation>
+ <subSectionInfo>
+ <subSectionCode>VS</subSectionCode>
+ <subSectionName>Exemptions</subSectionName>
+ <subSectionDisplayName>Visa Exemptions:
+ </subSectionDisplayName>
+ <countryParagraph paragraphId="26272">
+ <paragraphType>Exception</paragraphType>
+ <paragraphText>Nationals of the USA and Canada.
+ </paragraphText>
+ </countryParagraph>
+ </subSectionInfo>
+ </sectionInfo>
+ </countryInformation>
+ </countryInformationResponse>
+ </m:processRequestResponse>
+ </env:Body>
+</env:Envelope> 
 </prtextareae>
